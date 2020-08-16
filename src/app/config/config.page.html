@@ -1,0 +1,31 @@
+<app-header-back title="Configurar dispositivo"></app-header-back>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="goBack()" slot="start">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Configurar dispositivo</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-card (click)="autoconnect(device.id, i, device)" *ngFor="let device of devices; let i = index">
+    <ion-card-content>
+      <div>
+        <ion-icon slot="start" name="bluetooth-outline"></ion-icon>
+      </div>
+      <div>
+        <p>{{device.name || 'Unknown'}}</p>
+        <p>{{device.id}}</p>
+      </div>
+      <ion-spinner *ngIf="connecting[i]" slot="end" name="lines"></ion-spinner>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-button (click)="scan()" expand="block" shape="round">
+      Escanear
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

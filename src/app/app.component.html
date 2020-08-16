@@ -1,0 +1,45 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>UNAL Glucose</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item [routerLink]="menuItem.route" routerDirection="root" *ngFor="let menuItem of menu">
+            <ion-icon color="primary" src="{{menuItem.src}}" name="{{menuItem.icon}}"></ion-icon>
+            <ion-label>{{menuItem.title}}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- <ion-menu side="start" type="overlay" contentId="main">
+    <ion-header>
+      <ion-toolbar color="greenlm">
+        <ion-title>Glucosa</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content id="main">
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item (click)="goMenu(menuItem.route)"  *ngFor="let menuItem of menu">
+            <ion-icon color="primary" src="{{menuItem.src}}" name="{{menuItem.icon}}"></ion-icon>
+            <ion-label>{{menuItem.title}}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item (click)="doLogout()" style="margin-top: 1rem;" lines="none">
+            <ion-label
+              style="font-weight: 500;color: var(--highlight-color-invalid);display: flex;justify-content: center;align-items: center;">
+              <ion-icon style="margin-right: 3px;" name="power"></ion-icon> Cerrar sesión
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu> -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

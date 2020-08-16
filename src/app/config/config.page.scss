@@ -1,0 +1,23 @@
+ion-card {
+    margin: 0.75rem 1rem;
+    padding: 0rem 1rem;
+    ion-card-content {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      p {
+        margin: 0.75em 0;
+      }
+      div {
+        &:nth-child(1) {
+          flex: 1 1 15%;
+          font-size: calc(3vw + 3vh);
+          display: flex;
+          justify-content: center;
+        }
+        &:nth-child(2) {
+          flex: 1 1 85%
+        }
+      }
+    }
+  }

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nivel de Glucosa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div *ngFor="let gluc of glucose">
+    <p>{{gluc.data}}</p>
+  </div> -->
+  <section *ngIf="deviceInfo">
+    <ion-card>
+      <ion-card-content>
+        <div *ngIf="actualBatteryValue" class="batteryLevel">
+          <ion-icon *ngIf="actualBatteryValue <= 5" name="battery-dead-outline"></ion-icon>
+          <ion-icon *ngIf="actualBatteryValue <= 50 && actualBatteryValue > 5" name="battery-half-outline"></ion-icon>
+          <ion-icon *ngIf="actualBatteryValue > 50" name="battery-full-outline"></ion-icon>
+          <span>{{actualBatteryValue}}</span>
+        </div>
+        <div class="measure">
+          <h1>{{actualValue}}</h1>
+          <span>mg/dL</span>
+        </div>
+        <div class="previousMeasure">
+          <span *ngIf="penultimalValue">Lectura anterior: {{penultimalValue.data}} mg/dL</span>
+          <span *ngIf="!penultimalValue">Lectura anterior: Pendiente leer prox. dato</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button (click)="openGraph()" expand="block" >
+            <ion-icon slot="start" expand="full" src="assets/img/chart.svg"></ion-icon>
+            Gráfica
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button (click)="showDeviceInfo()" expand="block" >
+            <ion-icon slot="start" expand="full" name="information-circle-outline"></ion-icon>
+            Información
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+  <section *ngIf="!deviceInfo" class="noDeviceContainer">
+    <div class="noDevice">
+      <ion-thumbnail>
+        <img src="assets/img/bad.svg" />
+      </ion-thumbnail>
+      <p>Actualmente no tienes un dispositivo vinculado, por favor conecta uno dando click en "Configurar dispositivo".</p>
+    </div>
+    <ion-button (click)="go2Config()" expand="block" shape="round">
+      <ion-icon slot="start" name="construct-outline"></ion-icon>
+      Configurar dispositivo
+    </ion-button>
+  </section>
+</ion-content>
